@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Books</title>
+    <link href="/static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+    <form id="login-form">
+        Username: <input type="text" name="username">
+        Password: <input type="password" name="password">
+        <button id="login-button" type="submit">Log in</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for book in books %}
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.name }}</td>
+            <td>{{ book.author }}</td>
+            <td>
+                <button data-id="{{ book.id }}" class="delete-button">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form id="create-form">
+        Name: <input type="text" id="name" name="name">
+        Author: <input type="text" id="author" name="author">
+        <button id="create-button" type="submit">Create</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>
